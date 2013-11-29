@@ -1,6 +1,6 @@
 {
   "name": "serialize-object",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Serialize objects into JavaScript source that re-creates them from their constructor",
   "main": "index.js",
   "repository": {
