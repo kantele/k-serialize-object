@@ -28,7 +28,7 @@ function serializeValue(input) {
     return 'null';
 
   } else if (typeof input === 'string') {
-    return quoteString(input);
+    return formatString(input);
 
   } else if (typeof input === 'number' || typeof input === 'boolean') {
     return input + '';
@@ -45,11 +45,14 @@ function serializeValue(input) {
     var items = [];
     for (var key in input) {
       var value = serializeValue(input[key]);
-      items.push(quoteString(key) + ': ' + value);
+      items.push(formatString(key) + ': ' + value);
     }
     return '{' + items.join(', ') + '}';
   }
 }
-function quoteString(value) {
-  return '\'' + value.replace(/'/g, '\\\'') + '\'';
+function formatString(value) {
+  var escaped = value
+    .replace(/'/g, '\\\'')
+    .replace(/\r?\n/g, '\\n');
+  return '\'' + escaped + '\'';
 }
