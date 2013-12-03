@@ -21,7 +21,7 @@ function serializeValue(input) {
   if (input && input.serialize) {
     return input.serialize();
 
-  } else if (typeof input == 'undefined') {
+  } else if (typeof input === 'undefined') {
     return 'void 0';
 
   } else if (input === null) {
@@ -41,7 +41,7 @@ function serializeValue(input) {
     }
     return '[' + items.join(', ') + ']';
 
-  } else if (typeof input == 'object') {
+  } else if (typeof input === 'object') {
     var items = [];
     for (var key in input) {
       var value = serializeValue(input[key]);
