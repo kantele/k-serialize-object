@@ -1,20 +1,27 @@
 exports.instance = serializeInstance;
+exports.args = serializeArgs;
 exports.value = serializeValue;
 
 function serializeInstance(instance) {
+  var args = Array.prototype.slice.call(arguments, 1);
+  return 'new ' + instance.module + '.' + instance.type +
+    '(' + serializeArgs(args) + ')';
+}
+
+function serializeArgs(args) {
   // Map each argument into its string representation
-  var args = [];
-  for (var i = arguments.length; i-- > 1;) {
-    var arg = serializeValue(arguments[i]);
-    args.unshift(arg);
+  var items = [];
+  for (var i = args.length; i--;) {
+    var item = serializeValue(args[i]);
+    items.unshift(item);
   }
   // Remove trailing null values, assuming they are optional
-  for (var i = args.length; i--;) {
-    var arg = args[i];
-    if (arg !== 'void 0' && arg !== 'null') break;
-    args.pop();
+  for (var i = items.length; i--;) {
+    var item = items[i];
+    if (item !== 'void 0' && item !== 'null') break;
+    items.pop();
   }
-  return 'new ' + instance.module + '.' + instance.type + '(' + args.join(', ') + ')';
+  return items.join(', ');
 }
 
 function serializeValue(input) {
