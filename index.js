@@ -58,8 +58,12 @@ function serializeValue(input) {
   }
 }
 function formatString(value) {
-  var escaped = value
-    .replace(/'/g, '\\\'')
-    .replace(/\r?\n/g, '\\n');
+  var escaped = value.replace(/['\r\n\\]/g, function(match) {
+    return (match === '\'') ? '\\\'' :
+      (match === '\r') ? '\\r' :
+      (match === '\n') ? '\\n' :
+      (match === '\\') ? '\\\\' :
+      '';
+  });
   return '\'' + escaped + '\'';
 }
