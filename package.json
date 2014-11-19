@@ -1,11 +1,11 @@
 {
-  "name": "serialize-object",
+  "name": "k-serialize-object",
   "version": "0.0.5",
   "description": "Serialize objects into JavaScript source that re-creates them from their constructor",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/codeparty/serialize-object.git"
+    "url": "git://github.com/kantele/k-serialize-object.git"
   },
   "keywords": [
     "serialize",
@@ -14,6 +14,6 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/codeparty/serialize-object/issues"
+    "url": "https://github.com/kantele/k-serialize-object/issues"
   }
 }
