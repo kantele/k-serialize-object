@@ -5,15 +5,19 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/codeparty/serialize-object.git"
+    "url": "git://github.com/derbyjs/serialize-object.git"
   },
   "keywords": [
     "serialize",
     "constructor"
   ],
-  "author": "",
+  "author": "Nate Smith",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/codeparty/serialize-object/issues"
+    "url": "https://github.com/derbyjs/serialize-object/issues"
+  },
+  "homepage": "https://github.com/derbyjs/serialize-object#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
